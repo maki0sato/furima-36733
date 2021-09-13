@@ -9,13 +9,11 @@
 | last_name              | string  | null: false               |
 | reading_frist_name     | string  | null: false               |
 | reading_last_name      | string  | null: false               |
-| birth_year             | date    | null: false               |
-| birth_month            | date    | null: false               |
-| birth_day              | date    | null: false               |
+| birthday               | date    | null: false               |
 
 ### Association
 has_many :items
-has_many :oders
+has_many :orders
 
 
 ## itemsテーブル
