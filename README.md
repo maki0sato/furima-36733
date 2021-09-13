@@ -54,7 +54,8 @@ has_one :address
 | city                   | string     | null: false                    |
 | house_number           | string     | null: false                    |
 | building_name          | string     |                                |
-| orders                 | references | null: false, foreign_key: true |
+| telephone number       | integer    | null: false                    |
+| order                  | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :order
