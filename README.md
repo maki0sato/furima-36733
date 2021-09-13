@@ -28,7 +28,7 @@ has_many :items
 | price                  | integer    | null: false                    |
 | delivery_free          | integer    | null: false                    |
 | items_prefecture       | integer    | null: false                    |
-| day_to                 | integer    | null: false                    |
+| days_to                 | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
 
 ### Association
