@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
-  
+
   describe 'ユーザー新規登録' do
     context '新規登録できる場合' do
       it 'フォーム入力が正しくできていれば登録できる' do
@@ -37,31 +37,31 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Password can't be blank")
       end
 
-      it "last_nameが空では登録できない" do
+      it 'last_nameが空では登録できない' do
         @user.last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name can't be blank", "Last name is invalid")
+        expect(@user.errors.full_messages).to include("Last name can't be blank", 'Last name is invalid')
       end
 
-      it "first_nameが空では登録できない" do
+      it 'first_nameが空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank", "First name is invalid")
+        expect(@user.errors.full_messages).to include("First name can't be blank", 'First name is invalid')
       end
 
-      it "reading_last_nameが空では保存できない" do
+      it 'reading_last_nameが空では保存できない' do
         @user.reading_last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Reading last name can't be blank", "Reading last name is invalid")
+        expect(@user.errors.full_messages).to include("Reading last name can't be blank", 'Reading last name is invalid')
       end
 
-      it "reading_first_nameが空では登録できない" do
+      it 'reading_first_nameが空では登録できない' do
         @user.reading_first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Reading first name can't be blank", "Reading first name is invalid")
+        expect(@user.errors.full_messages).to include("Reading first name can't be blank", 'Reading first name is invalid')
       end
 
-      it "birthbayが空では登録できない" do
+      it 'birthbayが空では登録できない' do
         @user.birthday = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Birthday can't be blank")
@@ -72,7 +72,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-      
+
       it '重複したemailが存在する場合登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
