@@ -8,5 +8,16 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(item_params)
+    if item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
+
+  def item_params
+    params.require(:item).permit(:item, :text, :category_id, :quality_id, :price, :delivery_free_id, :presence, :days_to_id)
+  end
+
 end
