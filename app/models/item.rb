@@ -19,10 +19,6 @@ class Item < ApplicationRecord
   validates :days_to_id,        presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :price,             presence: true, numericality: {in: 300..9999999}
   validates :price,             format: { with: /\A[0-9]+\z/ }
-  validates :image,             presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.was_attached?
-  end
+  validates :image,             presence: true
 
 end
