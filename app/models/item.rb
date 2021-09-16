@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   validates :delivery_free_id,  presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id,     presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :days_to_id,        presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :price,             presence: true, numericality: {in: 300..9999999}
+  validates :price,             presence: true, numericality: { less_than_or_equal_to: 9999999, greater_than_or_equal_to: 300 }
   validates :price,             format: { with: /\A[0-9]+\z/ }
   validates :image,             presence: true
 
