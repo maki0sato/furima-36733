@@ -1,10 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "Items", type: :request do
-  describe "GET /items" do
-    it "works! (now write some real specs)" do
-      get items_index_path
-      expect(response).to have_http_status(200)
+describe ItemsController, type: :request do
+
+  before do
+    @item = FactoryBot.create(:item)
+  end
+
+  describe "GET #index" do
+    it 'indexアクションにリクエストすると正常なレスポンスが帰ってくる' do
+      get root_path
+      expect(response.status).to eq 200
     end
   end
 end
