@@ -21,6 +21,10 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
         debugger;
       }
+      document.getElementById("order_number").removeAttribute("name");
+      document.getElementById("order_cvc").removeAttribute("name");
+      document.getElementById("order_exp_month").removeAttribute("name");
+      document.getElementById("order_exp_year").removeAttribute("name");
     });
   });
 };
