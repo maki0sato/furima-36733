@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
   end
 
   #def address_params
-    #params.permit(:postal_code, :prefecture, :city, :house_number, :building_name, :telephone_nember).merge(order_id: @order.id)
+    #params.permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :telephone_nember).merge(order_id: @order.id)
   #end
 
   def pay_item
