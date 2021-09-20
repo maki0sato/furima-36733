@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       pay_item
-      @order.save
+      @order_address.save
       return redirect_to root_path
     else
       render :index
