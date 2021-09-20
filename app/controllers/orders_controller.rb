@@ -17,6 +17,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).merge(params[:item_id] , user_id: current_user.id)
+    params.require(:order).merge(params[:item_id], user_id: current_user.id, token: params[:token])
   end
 end
