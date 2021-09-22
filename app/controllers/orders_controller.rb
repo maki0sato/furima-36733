@@ -8,9 +8,7 @@ class OrdersController < ApplicationController
       redirect_to root_path
       return
     end
-    if @item.order.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.order.present?
   end
 
   def new
@@ -23,7 +21,7 @@ class OrdersController < ApplicationController
     if @order_address.valid?
       pay_item
       @order_address.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
@@ -32,12 +30,13 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :telephone_number).merge(user_id: current_user.id, token: params[:token], item_id: params[:item_id])
+    params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :telephone_number).merge(
+      user_id: current_user.id, token: params[:token], item_id: params[:item_id]
+    )
   end
 
-
   def pay_item
-    Payjp.api_key = "sk_test_ddfdfa9d06fd79d5395d88e1"
+    Payjp.api_key = 'sk_test_ddfdfa9d06fd79d5395d88e1'
     Payjp::Charge.create(
       amount: @item.price,
       card: order_params[:token],
